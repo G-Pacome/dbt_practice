@@ -1,0 +1,33 @@
+version: 2
+models:
+  - name: stg_customers
+    columns: 
+      - name: unique_customer_id
+        data_tests: 
+          - unique
+          - not_null
+      - name: full_name
+        tests:
+          - not_null  
+          - accepted_values:  
+              values: ["Alice-Smith", "Bob-Johnson", "Charlie-Williams"]  
+
+  - name: stg_orders
+    columns: 
+      - name: uniq_order_id
+        data_tests:
+          - not_null
+      - name: customer_id
+        tests: 
+          - not_null
+          - relationships:
+              to: ref('stg_customers')  
+              field: customer_id  
+  # - name: customer_order  
+  #   description: "This model generates customer order data."
+  #   tests:
+  #     - unit_price_test  
+  #   columns:
+  #     - name: unit_price
+  #       tests:
+  #         - not_null  

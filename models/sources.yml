@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: PUB                      # Source name (should match your Snowflake schema)
+    database: PROJECT               # Database name in Snowflake
+    schema: PUB                     # Schema name (assuming "PUB" is the schema in the database)
+    tables:
+      - name: CUSTOMERS             # Table name in the "PUB" schema
+      - name: ORDERS
+      - name: ORDER_ITEMS

@@ -1,0 +1,23 @@
+
+name: 'retail_sale_dbt'
+version: '1.0.0'
+
+
+profile: 'retail_sale_dbt'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:       
+  - "target"
+  - "dbt_packages"
+
+models:
+  retail_sale_dbt:
+    +materialized: view
+    staging:
+      +materialized: table
